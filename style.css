@@ -1,0 +1,215 @@
+/* ============================
+    PALETA DE CORES
+============================ */
+:root {
+    --cor-fundo: #1e2a38;
+    --cor-painel: #f2f4f7;
+    --cor-letras: #1A1A1A;
+    --cor-acerto: #22C55E;
+    --cor-erro: #EF4444;
+    --cor-btn-principal: #7C3AED;
+    --cor-btn-secundario: #3B82F6;
+    --cor-forca: #374151;
+    --cor-vitoria: #FACC15;
+    --cor-derrota: #B91C1C;
+    --cor-card-bg: #f8f9fa; /* Um branco acinzentado suave para os cards */
+    
+    /* Cores de sombra para o efeito 3D */
+    --sombra-principal: #6D28D9; /* Tom mais escuro do botão principal */
+    --sombra-secundaria: #2563eb; /* Tom mais escuro do botão secundário */
+}
+
+/* ============================
+    ESTILOS BASE
+============================ */
+body.bg-principal {
+    background-color: var(--cor-fundo);
+    font-family: 'Poppins', sans-serif; /* Fonte mais moderna, considere importar via Google Fonts */
+    min-height: 100vh;
+}
+
+/* Estilo para os Cards (Melhor Arredondamento) */
+.card-moderno {
+    border-radius: 12px;
+    border: none;
+}
+
+/* Estilo para a Logo no Título e Landing Page */
+.logo-titulo {
+    width: 45px;
+    height: auto; 
+}
+
+.logo-landing {
+    max-width: 250px;
+    height: auto;
+}
+
+.letter-spacing {
+    letter-spacing: 15px;
+    font-weight: 800; /* Mais ousado */
+    color: var(--cor-letras);
+    padding: 0 10px; /* Ajuda a centralizar visualmente se a palavra for curta */
+}
+
+/* ============================
+    PAINÉIS & ÁREAS
+============================ */
+.bg-card {
+    background-color: var(--cor-card-bg) !important;
+}
+
+.bg-painel {
+    background-color: var(--cor-painel) !important;
+    border-top-left-radius: 12px; /* Mantém o arredondamento */
+    border-top-right-radius: 12px;
+}
+
+.bg-forca {
+    background-color: var(--cor-forca) !important;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.text-erro {
+    color: var(--cor-erro) !important;
+}
+
+/* ============================
+    TECLADO
+============================ */
+#teclado button {
+    width: 45px;
+    height: 45px;
+    font-weight: bold;
+    border-radius: 8px; /* Levemente mais arredondado */
+    border: none;
+    transition: all 0.1s ease;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+}
+
+/* BOTÃO PADRÃO DO TECLADO (AZUL SECUNDÁRIO) */
+.btn-letra {
+    background-color: var(--cor-btn-secundario);
+    color: white;
+}
+
+.btn-letra:hover:not(:disabled) {
+    background-color: var(--sombra-secundaria); 
+}
+
+/* BOTOES DE ACERTO/ERRO NO TECLADO */
+.btn-acerto {
+    background-color: var(--cor-acerto) !important;
+    box-shadow: 0 3px 0 0 #15803d !important; /* Sombra verde escura */
+}
+
+.btn-erro {
+    background-color: var(--cor-erro) !important;
+    box-shadow: 0 3px 0 0 #b91c1c !important; /* Sombra vermelha escura */
+    opacity: 1; /* Remove a opacidade para manter o estilo 3D */
+}
+
+/* DESABILITADO (Botões pressionados) */
+#teclado button:disabled {
+    box-shadow: none !important; /* Remove o efeito 3D ao ser clicado */
+    transform: translateY(3px); /* Movimento para baixo */
+    cursor: not-allowed;
+    opacity: 0.8; /* Mantém a opacidade */
+}
+
+
+/* ============================
+    BOTÕES PERSONALIZADOS (Efeito 3D)
+============================ */
+.btn-3d {
+    border: none;
+    border-radius: 8px !important;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    transition: all 0.1s ease;
+}
+
+/* BOTÃO PRINCIPAL (ROXO) */
+.btn-principal {
+    background-color: var(--cor-btn-principal) !important;
+    color: white !important;
+    box-shadow: 0 5px 0 0 var(--sombra-principal); /* Sombra 3D */
+}
+
+.btn-principal:hover {
+    background-color: var(--sombra-principal) !important;
+}
+
+.btn-principal:active {
+    box-shadow: none !important;
+    transform: translateY(5px);
+}
+
+/* BOTÃO SECUNDÁRIO (AZUL) */
+.btn-secundario {
+    background-color: var(--cor-btn-secundario) !important;
+    color: white !important;
+    box-shadow: 0 5px 0 0 var(--sombra-secundaria); /* Sombra 3D */
+}
+
+.btn-secundario:hover {
+    background-color: var(--sombra-secundaria) !important;
+}
+
+.btn-secundario:active {
+    box-shadow: none !important;
+    transform: translateY(5px);
+}
+
+/* ============================
+    EFEITOS DE VITÓRIA / DERROTA
+============================ */
+.msg-vitoria {
+    color: var(--cor-vitoria);
+}
+
+.vitoria {
+    color: var(--cor-vitoria) !important; 
+    font-weight: bold;
+    animation: brilho 1s infinite alternate;
+}
+
+.derrota {
+    color: var(--cor-derrota) !important;
+    font-weight: bold;
+}
+
+@keyframes brilho {
+    from { text-shadow: 0 0 5px var(--cor-vitoria); }
+    to { text-shadow: 0 0 15px var(--cor-vitoria); }
+}
+
+/* ============================
+   BADGE DE CATEGORIA
+============================ */
+.badge-categoria {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px; /* Bem arredondado (pílula) */
+    background-color: var(--cor-forca); /* Cor escura da forca */
+    color: var(--cor-painel); /* Cor clara do painel */
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra suave para destacar */
+    transition: all 0.3s ease;
+}
+
+.badge-categoria:hover {
+    background-color: #4e5e70; /* Levemente mais claro no hover */
+}
+
+/* Ajuste no cabeçalho do Modal para usar a cor da forca */
+.modal-header.header-forca {
+    background-color: var(--cor-forca) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* Ajuste no botão fechar do modal */
+.btn-close-white {
+    filter: invert(1);
+}
